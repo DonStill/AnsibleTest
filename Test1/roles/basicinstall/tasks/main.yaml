@@ -1,0 +1,8 @@
+---
+- name: install necessary packages
+  yum:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  loop: "{{ pkgs }}"
+  notify:
+  - start packages

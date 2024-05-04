@@ -1,0 +1,7 @@
+---
+pkgs:
+  - name: httpd
+    state: started
+  - name: autofs
+    state: started
+    

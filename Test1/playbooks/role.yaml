@@ -1,0 +1,8 @@
+---
+- name: Set Up HTTP Web Application
+  hosts: servers
+  become: yes
+  roles: 
+  - http
+  - basicinstall
+  

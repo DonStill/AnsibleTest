@@ -1,0 +1,25 @@
+---
+- name: install httpd
+  yum:
+    name: "{{ pkg }}"
+    state: present
+  notify:
+  - Start/Enable HTTPD
+  - Success
+
+- name: create index.html
+  lineinfile:
+    path: "{{ httpfile }}"
+    line: "This is a website run by $HOSTNAME using Ansible."
+    create: yes
+  notify:
+  - Success
+  
+# - name: set up firewall
+#   firewalld:
+#     service: http
+#     permanent: true
+#     state: enabled
+#   notify:
+#   - Reload Firewall
+#   - Success

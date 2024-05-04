@@ -1,0 +1,15 @@
+---
+- name: Start/Enable HTTPD
+  service:
+    name: "{{ pkg }}"
+    state: started
+    enabled: true
+
+- name: Success
+  debug:
+    msg: "Last task was succesful!"
+
+- name: Reload Firewall
+  service:
+    name: firewalld
+    state: reloaded
